@@ -1,0 +1,83 @@
+<script type="text/javascript" src="/_layouts/images/min/jquery.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/_layouts/images/min/bootstrap.min.css"></link>
+<script type="text/javascript" src="/_layouts/images/min/bootstrap.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/_layouts/images/min/bootstrap-multiselect.css"></link>
+<script type="text/javascript" src="/_layouts/images/min/bootstrap-multiselect.js"></script>
+
+
+--------------Jquery-------------------------------------------------------
+<script type="text/javascript">
+    $(function () {
+        $('[id*=rcmblocktype]').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
+--------------------HTML----------------------------------------------------------------------------------
+<asp:ListBox ID="rcmblocktype" runat="server" SelectionMode="Multiple" Width="90px"></asp:ListBox>
+
+--------------------Code-----------------------------------------------------------------------------------
+
+ Dim dt1 As DataTable = ds.Tables(0)
+ Dim view As DataView = New DataView(dt1)
+ view.Sort = "StatusLU"
+ Dim distinctValues5 As DataTable = view.ToTable(True, "StatusLU")
+
+     rcmblocktype.DataSource = distinctValues5
+     rcmblocktype.DataValueField = "StatusLU"
+     rcmblocktype.DataTextField = "StatusLU"
+     rcmblocktype.DataBind()
+
+
+Dim collection6 As List(Of String) = New List(Of String)
+
+For Each item As ListItem In rcmblocktype.Items
+                If item.Selected Then
+                    collection6.Add(item.Text)
+                    'message += item.Text + " " + item.Value + "\n"
+                End If
+            Next
+
+
+
+
+          
+ If (collection6.Count <> 0) Then
+        str1 = "And " + str1
+         str1 = ")" + str1
+          For a As Integer = 0 To collection6.Count - 1
+                    If a = 0 Then
+                        str1 = "StatusLU='" + collection6(a).ToString() + "'" + str1
+                    Else
+                        str1 = "StatusLU='" + collection6(a).ToString() + "' Or " + str1
+                    End If
+                Next
+                
+          str1 = "(" + str1
+   End If
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
