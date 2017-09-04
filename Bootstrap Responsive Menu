@@ -1,0 +1,58 @@
+//Bootstrap Responsive Menu
+
+<head runat="server">
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+     <link rel="stylesheet" href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+    media="screen" />
+<script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+       
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                    class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" EnableViewState="false"
+                    IncludeStyleBlock="false" 
+                    CssClass="navbar navbar-fixed-top"
+                    StaticMenuStyle-CssClass="nav"
+                    StaticSelectedStyle-CssClass="active"
+                    DynamicMenuStyle-CssClass="dropdown-menu">
+<DynamicMenuStyle CssClass="dropdown-menu"></DynamicMenuStyle>
+
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home">
+                        <asp:MenuItem Text="Services" Value="Services"></asp:MenuItem>
+                        <asp:MenuItem Text="User Login" Value="User Login"></asp:MenuItem>
+                        <asp:MenuItem Text="Master Login" Value="Master Login"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Contact US" Value="Contact US">
+                        <asp:MenuItem Text="Email" Value="Email"></asp:MenuItem>
+                        <asp:MenuItem Text="Phone number" Value="Phone number"></asp:MenuItem>
+                        <asp:MenuItem Text="Address" Value="Address"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Help" Value="Help">
+                        <asp:MenuItem Text="Documentation" Value="Documentation"></asp:MenuItem>
+                        <asp:MenuItem Text="Search" Value="Search"></asp:MenuItem>
+                    </asp:MenuItem>
+                </Items>
+
+<StaticMenuStyle CssClass="nav navbar-nav"></StaticMenuStyle>
+            </asp:Menu>
+        </div>
+    </div>
+</div> 
+    </form>
+</body>
+</html>
